@@ -6,9 +6,9 @@ dotenv.config({
     path:'../env'
 })
 
-app.get('/altaneo/hello',(req,res)=>{
-    res.send('Ha bhai')
-})
+app.get('/altaneo/hello', (req, res) => {
+    res.status(200).send('Ha bhai');
+});
 
 connectDB()
 .then(()=>{

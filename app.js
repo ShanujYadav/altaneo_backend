@@ -45,8 +45,7 @@ app.use('/altaneo/v1/service/vendorFinancing', accessTokenVerify,vendorFinancing
 
 
 app.get('/altaneo/hello', (req, res) => {
-    res.send('Ha bhai')
-})
-
+    res.status(200).send('Ha bhai');
+});
 
 export { app }
