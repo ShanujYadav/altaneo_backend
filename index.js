@@ -6,7 +6,7 @@ dotenv.config({
     path:'../env'
 })
 
-app.get('/hello',(req,res)=>{
+app.get('/altaneo/hello',(req,res)=>{
     res.send('Ha bhai')
 })
 
