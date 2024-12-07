@@ -71,16 +71,24 @@ const sendOtp = asyncHandler(async (req, res) => {
 
 
         // ------------------------- logic for send otp ---------------------------
-
         const otp = Math.floor(1000 + Math.random() * 9000)
 
-        // const body = JSON.stringify({
-        //     apikey: process.env.MTALKZ_APIKEY,
-        //     senderid: process.env.MTALKZ_SENDERID,
-        //     number: phone,
-        //     message: `Your OTP- One Time Password is ${otp} to authenticate your login with ${otp} Powered By mTalkz`,
-        //     format: "json"
+        const body = JSON.stringify({
+            apikey: process.env.MTALKZ_APIKEY,
+            senderid: process.env.MTALKZ_SENDERID,
+            number: phone,
+            message: `Your OTP- One Time Password is ${otp} to authenticate your login with ${otp} Powered By mTalkz`,
+            format: "json"
+        })
+
+        // const otpResponse = await axios.post(process.env.MTALKZ_BASEURL, body, {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
         // })
+        // if (otpResponse.data.status !== 'OK') {
+        //     return res.status(400).json(new ApiResponse(400, otpResponse.data.message))
+        // }
 
         const input = phone + otp
         const mobHash = genrateMobHash(input)
