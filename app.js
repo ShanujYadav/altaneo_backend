@@ -36,16 +36,13 @@ app.use('/altaneo/v1/leads', headerVerify, leadsRouter)
 
 app.use('/altaneo/v1/admin', headerVerify, adminRouter)
 
-
 app.use('/altaneo/v1/user', accessTokenVerify, userRouter)
 app.use('/altaneo/v1/service/vendorFinancing', accessTokenVerify,vendorFinancingRouter)
 
 
-
-
-
-app.get('/altaneo/hello', (req, res) => {
+app.get('/altaneo/hell', (req, res) => {
     res.status(200).send('Ha bhai');
-});
+})
+
 
 export { app }

@@ -2,9 +2,11 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { hmacVal } from "../utils/encryption.js";
 
-const rateLimitCache = new Map(); // Simple in-memory cache for rate limiting
+const rateLimitCache = new Map(); 
 
 export const headerVerify = asyncHandler(async (req, res, next) => {
+    console.log('headerVerify hmacVal---',hmacVal)
+
     try {
         const getHmac = req.header('reqHmac');
         const userAgent = req.header('userAgent');
