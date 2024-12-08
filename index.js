@@ -9,6 +9,7 @@ app.get('/altaneo/hello', (req, res) => {
     res.status(200).send('Ha bhai');
 })
 
+console.log('index pid =--------',process.env.PID);
 
 connectDB()
 .then(()=>{

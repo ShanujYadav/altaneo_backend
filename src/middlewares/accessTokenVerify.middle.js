@@ -1,10 +1,12 @@
 import jwt from "jsonwebtoken";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiResponse } from '../utils/ApiResponse.js';
-import { hmacVal } from "../utils/encryption.js";
+import {  hmacVal } from "../utils/encryption.js";
 import { User } from "../models/user.model.js";
 
 export const accessTokenVerify = asyncHandler(async (req, res, next) => {
+    console.log('getHmac---',hmacVal())
+    
     try {
         const reqHmac = req.header('reqHmac')
         const token = req.header('accessToken')
@@ -14,7 +16,7 @@ export const accessTokenVerify = asyncHandler(async (req, res, next) => {
         if (!(token && reqHmac && userAgent && segId)) {
             return res.status(401).json(new ApiResponse(401, "Empty Headers !"))
         }
-        if (reqHmac !== hmacVal) {
+        if (hmacVal() !== reqHmac) {
             return res.status(401).json(
                 new ApiResponse(401, "Invalid reqHmac !")
             )

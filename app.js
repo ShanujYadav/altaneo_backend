@@ -25,8 +25,6 @@ import adminRouter from './src/routes/admin.routes.js'
 import { headerVerify } from './src/middlewares/headerVerify.middle.js'
 import { accessTokenVerify } from './src/middlewares/accessTokenVerify.middle.js'
 
-import { hmacVal } from './src/utils/encryption.js'
-console.log(hmacVal)
 
 
 //------------Routes Declaration ---------------
@@ -44,5 +42,6 @@ app.get('/altaneo/hell', (req, res) => {
     res.status(200).send('Ha bhai');
 })
 
+console.log('app pid-------',process.env.PID);
 
 export { app }
